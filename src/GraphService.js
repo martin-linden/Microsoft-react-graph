@@ -53,3 +53,15 @@ export async function getGroups(accessToken) {
 
 	return groups;
 }
+export async function getGroupMembers(accessToken, id) {
+	const client = getAuthenticatedClient(accessToken);
+
+	const groupMembers = await client
+		.api(`/groups/${id}/members`)
+		//		.select('subject,organizer,start,end')
+		//		.orderby('createdDateTime DESC')
+		.get();
+
+	return groupMembers;
+}
+// createGroup({displayName}), addGroupMember

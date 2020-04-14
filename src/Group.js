@@ -16,6 +16,7 @@ export default class Group extends React.Component {
         this.state = {
             groups: []
         };
+        this.handleGroupClick = this.handleGroupClick.bind(this);
     }
 
     async componentDidMount() {
@@ -33,6 +34,10 @@ export default class Group extends React.Component {
         }
     }
 
+    handleGroupClick(id) {
+        console.log(id);
+    }
+
     render() {
         return (
             <div>
@@ -47,9 +52,14 @@ export default class Group extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.groups.map(function (group) {
+                        {this.state.groups.map((group) => {
                             return (
-                                <tr key={group.id}>
+                                <tr
+                                    key={group.id}
+                                    onClick={() => this.handleGroupClick(
+                                        group.id
+                                    )}
+                                >
                                     <td>{group.createdDateTime}</td>
                                     <td>{group.id}</td>
                                     <td>{group.description}</td>
