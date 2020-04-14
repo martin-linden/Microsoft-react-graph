@@ -6,7 +6,7 @@ function WelcomeContent(props) {
 	if (props.isAuthenticated) {
 		return (
 			<div>
-				<h4>Welcome {props.user.displayName}!</h4>
+				<h4>Välkommen {props.user.displayName}!</h4>
 				<p>
 					Use the navigation bar at the top of the page to get
 					started.

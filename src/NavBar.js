@@ -56,7 +56,7 @@ function AuthNavItem(props) {
 					</p>
 					<DropdownItem divider />
 					<DropdownItem onClick={props.authButtonMethod}>
-						Sign Out
+						Logga ut
 					</DropdownItem>
 				</DropdownMenu>
 			</UncontrolledDropdown>
@@ -66,7 +66,7 @@ function AuthNavItem(props) {
 	// Not authenticated, return a sign in link
 	return (
 		<NavItem>
-			<NavLink onClick={props.authButtonMethod}>Sign In</NavLink>
+			<NavLink onClick={props.authButtonMethod}>Logga in</NavLink>
 		</NavItem>
 	);
 }
@@ -101,29 +101,21 @@ export default class NavBar extends React.Component {
 						className="nav-link"
 						exact
 					>
-						Calendar
+						Kalender
 					</RouterNavLink>
 				</NavItem>
 			);
 			userLink = (
 				<NavItem>
-					<RouterNavLink
-						to="/users"
-						className="nav-link"
-						exact
-					>
-						Users
+					<RouterNavLink to="/users" className="nav-link" exact>
+						Användare
 					</RouterNavLink>
 				</NavItem>
 			);
 			groupLink = (
 				<NavItem>
-					<RouterNavLink
-						to="/groups"
-						className="nav-link"
-						exact
-					>
-						Groups
+					<RouterNavLink to="/groups" className="nav-link" exact>
+						Grupper
 					</RouterNavLink>
 				</NavItem>
 			);
@@ -133,9 +125,7 @@ export default class NavBar extends React.Component {
 			<div>
 				<Navbar color="dark" dark expand="md" fixed="top">
 					<Container>
-						<NavbarBrand href="/">
-							React Graph Tutorial
-						</NavbarBrand>
+						<NavbarBrand href="/">Mina Möten</NavbarBrand>
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="mr-auto" navbar>
@@ -145,7 +135,7 @@ export default class NavBar extends React.Component {
 										className="nav-link"
 										exact
 									>
-										Home
+										Hem
 									</RouterNavLink>
 								</NavItem>
 								{calendarLink}

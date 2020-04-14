@@ -64,4 +64,16 @@ export async function getGroupMembers(accessToken, id) {
 
 	return groupMembers;
 }
+
 // createGroup({displayName}), addGroupMember
+export async function getMemberGroups(accessToken, id) {
+	const client = getAuthenticatedClient(accessToken);
+
+	const memberGroups = await client
+		.api('/groups/{id}/getMemberGroups')
+		//		.select('subject,organizer,start,end')
+		//		.orderby('createdDateTime DESC')
+		.get();
+
+	return memberGroups;
+}

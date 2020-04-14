@@ -36,14 +36,14 @@ export default class Calendar extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Calendar</h1>
+				<h1>Kalender</h1>
 				<Table>
 					<thead>
 						<tr>
-							<th scope="col">Organizer</th>
-							<th scope="col">Subject</th>
-							<th scope="col">Start</th>
-							<th scope="col">End</th>
+							<th scope="col">Organisatör</th>
+							<th scope="col">Ämne</th>
+							<th scope="col">Starttid</th>
+							<th scope="col">Sluttid</th>
 						</tr>
 					</thead>
 					<tbody>
