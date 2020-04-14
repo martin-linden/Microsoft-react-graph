@@ -1,4 +1,6 @@
 import Calendar from './Calendar';
+import Group from './Group';
+import User from './User';
 import { getUserDetails } from './GraphService';
 import config from './Config';
 import { UserAgentApplication } from 'msal';
@@ -141,8 +143,8 @@ class App extends Component {
 							this.state.isAuthenticated ? (
 								this.logout.bind(this)
 							) : (
-								this.login.bind(this)
-							)
+									this.login.bind(this)
+								)
 						}
 						user={this.state.user}
 					/>
@@ -169,6 +171,30 @@ class App extends Component {
 							path="/calendar"
 							render={(props) => (
 								<Calendar
+									{...props}
+									showError={this.setErrorMessage.bind(
+										this
+									)}
+								/>
+							)}
+						/>
+						<Route
+							exact
+							path="/groups"
+							render={(props) => (
+								<Group
+									{...props}
+									showError={this.setErrorMessage.bind(
+										this
+									)}
+								/>
+							)}
+						/>
+						<Route
+							exact
+							path="/users"
+							render={(props) => (
+								<User
 									{...props}
 									showError={this.setErrorMessage.bind(
 										this

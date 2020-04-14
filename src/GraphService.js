@@ -31,3 +31,25 @@ export async function getEvents(accessToken) {
 
 	return events;
 }
+export async function getUsers(accessToken) {
+	const client = getAuthenticatedClient(accessToken);
+
+	const users = await client
+		.api('/users')
+		//		.select('subject,organizer,start,end')
+		//		.orderby('createdDateTime DESC')
+		.get();
+
+	return users;
+}
+export async function getGroups(accessToken) {
+	const client = getAuthenticatedClient(accessToken);
+
+	const groups = await client
+		.api('/groups')
+		//		.select('subject,organizer,start,end')
+		//		.orderby('createdDateTime DESC')
+		.get();
+
+	return groups;
+}

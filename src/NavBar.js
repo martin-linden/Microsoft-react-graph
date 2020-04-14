@@ -90,6 +90,9 @@ export default class NavBar extends React.Component {
 	render() {
 		// Only show calendar nav item if logged in
 		let calendarLink = null;
+		let userLink = null;
+		let groupLink = null;
+
 		if (this.props.isAuthenticated) {
 			calendarLink = (
 				<NavItem>
@@ -99,6 +102,28 @@ export default class NavBar extends React.Component {
 						exact
 					>
 						Calendar
+					</RouterNavLink>
+				</NavItem>
+			);
+			userLink = (
+				<NavItem>
+					<RouterNavLink
+						to="/users"
+						className="nav-link"
+						exact
+					>
+						Users
+					</RouterNavLink>
+				</NavItem>
+			);
+			groupLink = (
+				<NavItem>
+					<RouterNavLink
+						to="/groups"
+						className="nav-link"
+						exact
+					>
+						Groups
 					</RouterNavLink>
 				</NavItem>
 			);
@@ -124,6 +149,8 @@ export default class NavBar extends React.Component {
 									</RouterNavLink>
 								</NavItem>
 								{calendarLink}
+								{userLink}
+								{groupLink}
 							</Nav>
 							<Nav className="justify-content-end" navbar>
 								<NavItem>
