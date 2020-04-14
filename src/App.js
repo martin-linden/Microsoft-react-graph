@@ -1,3 +1,4 @@
+import Calendar from './Calendar';
 import { getUserDetails } from './GraphService';
 import config from './Config';
 import { UserAgentApplication } from 'msal';
@@ -158,6 +159,18 @@ class App extends Component {
 									}
 									user={this.state.user}
 									authButtonMethod={this.login.bind(
+										this
+									)}
+								/>
+							)}
+						/>
+						<Route
+							exact
+							path="/calendar"
+							render={(props) => (
+								<Calendar
+									{...props}
+									showError={this.setErrorMessage.bind(
 										this
 									)}
 								/>
