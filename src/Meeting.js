@@ -39,9 +39,9 @@ export default class Meeting extends React.Component {
                 <option value="public">O-Offentligt</option>
               </select>
             </label>
-            <Button>
-            <input type="submit" value="OK" />
-            </Button>
+            <Button
+            input type="submit" value="OK" />
+        
           </form>
         );
       }
