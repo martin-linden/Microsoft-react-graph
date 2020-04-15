@@ -4,10 +4,11 @@ import moment from 'moment';
 import config from './Config';
 import { getGroups } from './GraphService';
 import SignUpGroup from './SignUpGroup';
+import { Button } from 'reactstrap';
 
 // Helper function to format Graph date/time
 function formatDateTime(dateTime) {
-	return moment.utc(dateTime).local().format('M/D/YY h:mm A');
+	return moment.utc(dateTime).local().format('M/D/YY');
 }
 
 export default class Group extends React.Component {
@@ -69,6 +70,7 @@ export default class Group extends React.Component {
 						})}
 					</tbody>
 				</Table>
+				<Button>Lägg till ny organisation</Button>
 				<SignUpGroup />
 			</div>
 		);
