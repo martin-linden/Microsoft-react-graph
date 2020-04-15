@@ -69,6 +69,8 @@ export default class Group extends React.Component {
 						})}
 					</tbody>
 				</Table>
+				<button>Lägg till Grupp</button>
+
 				<SignUpGroup />
 			</div>
 		);

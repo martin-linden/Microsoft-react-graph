@@ -77,3 +77,19 @@ export async function getMemberGroups(accessToken, id) {
 
 	return memberGroups;
 }
+
+export async function createGroup(accessToken, group) {
+	const client = getAuthenticatedClient(accessToken);
+
+	const templateObject = {
+		description: 'Self help community for library',
+		displayName: 'Library Assist',
+		groupTypes: [ 'Unified' ],
+		mailEnabled: true,
+		mailNickname: 'library',
+		securityEnabled: false // byt eventuellt till true om strul
+	};
+
+	group = Object.assign(templateObject, group);
+	let res = await client.api('/groups').post(group);
+}
