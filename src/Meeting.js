@@ -12,7 +12,7 @@ import { Table } from 'reactstrap';
 export default class Meeting extends React.Component {
 	constructor(props) {
         super(props);
-        this.state = {value: 'E-Enstaka'};
+        this.state = {value: 'once'};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,10 +39,42 @@ export default class Meeting extends React.Component {
                 <option value="public">O-Offentligt</option>
               </select>
             </label>
-            <Button
-            input type="submit" value="OK" />
-        
-          </form>
+            <input type="submit" value="ok" />
+      
+          <Table>
+					<thead>
+						<tr>
+							<th scope="col">Aktuella möten</th>
+							<th scope="col">Mötestyp</th>
+							<th scope="col">Organisationskod</th>
+							<th scope="col">Organisatör</th>
+              <th scope="col">Beskrivning</th>
+						</tr>
+					</thead>
+					<tbody>
+						{/* {this.state.meetings.map(function(meeting) {
+							return ( */}
+								<tr>
+									<td>Drakar och demoner</td>
+									<td>E-Enstaka</td>
+									<td>AAA</td>
+									<td>Ronneby Kommun</td>
+								</tr>
+                <tr>
+									<td>Medeltidsveckan</td>
+									<td>R-Återkommande</td>
+									<td>AAAB</td>
+									<td>Gotlands kommun</td>
+								</tr>
+                <tr>
+									<td>COVID-19</td>
+									<td>R-Återkommande</td>
+									<td>AAA</td>
+									<td>Stockholm Stad</td>
+								</tr>
+					</tbody>
+				</Table>
+        </form>
         );
       }
     }

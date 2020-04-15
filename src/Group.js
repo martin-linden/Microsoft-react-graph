@@ -70,7 +70,8 @@ export default class Group extends React.Component {
 						})}
 					</tbody>
 				</Table>
-				<Button>Lägg till ny organisation</Button>
+				<Button>Lägg till Grupp</Button>
+
 				<SignUpGroup />
 			</div>
 		);
