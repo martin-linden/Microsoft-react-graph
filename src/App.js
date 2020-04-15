@@ -11,6 +11,7 @@ import NavBar from './NavBar';
 import ErrorMessage from './ErrorMessage';
 import Welcome from './Welcome';
 import 'bootstrap/dist/css/bootstrap.css';
+import Meeting from './Meeting';
 
 class App extends Component {
 	constructor(props) {
@@ -202,6 +203,18 @@ class App extends Component {
 								/>
 							)}
 						/>
+						<Route
+							exact
+							path="/meetings"
+							render={(props) => (
+								<Meeting
+									{...props}
+									showError={this.setErrorMessage.bind(
+										this
+									)}
+								/>
+							)}
+						/> 
 					</Container>
 				</div>
 			</Router>
