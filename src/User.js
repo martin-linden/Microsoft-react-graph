@@ -8,6 +8,10 @@ import { Button } from 'reactstrap';
 // Helper function to format Graph date/time
 function formatDateTime(dateTime) {
 	return moment.utc(dateTime).local().format('M/D/YY h:mm A');
+
+// const handleClick = () => {
+// 		console.log('this is:', this);
+// 	}
 }
 
 export default class User extends React.Component {
@@ -17,6 +21,7 @@ export default class User extends React.Component {
 		this.state = {
 			users: []
 		};
+		// this.handleClick = this.handleClick.bind(this);
 	}
 
 	async componentDidMount() {
@@ -60,7 +65,10 @@ export default class User extends React.Component {
 						})}
 					</tbody>
 				</Table>
-				<Button>Lägg till användare</Button>
+				{/* <Button onClick={this.handleClick}> */}
+				<Button>
+					Skapa ny användare
+				</Button>
 			</div>
 		);
 	}
