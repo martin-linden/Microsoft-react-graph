@@ -3,6 +3,14 @@ import { Table } from 'reactstrap';
 import moment from 'moment';
 import config from './Config';
 import { getEvents } from './GraphService';
+import Agenda from './Components/agenda';
+
+import {
+	setMeetings,
+	getMeetings,
+	updateMeetingByID,
+	meetingTypes
+} from './meetingDB';
 
 // Helper function to format Graph date/time
 function formatDateTime(dateTime) {
@@ -27,7 +35,15 @@ export default class Calendar extends React.Component {
 			// Get the user's events
 			var events = await getEvents(accessToken);
 			// Update the array of events in state
-			this.setState({ events: events.value });
+			setMeetings(events.value);
+			let meeting = { meetingType: 'X' };
+			updateMeetingByID(
+				'AAMkADljMTE2MWQ5LThjZWQtNDMzNy05MmIwLTdiN2NmOWRiMjk2OABGAAAAAADBDpGaJZZqQKn6cew97Z8dBwB52p62yM8eQbWha4DiCMbpAAAAAAENAAB52p62yM8eQbWha4DiCMbpAAAV89ahAAA=',
+				meeting
+			);
+			this.setState({ events: getMeetings() });
+
+			//this.setState({ events: events.value });
 		} catch (err) {
 			this.props.showError('ERROR', JSON.stringify(err));
 		}
@@ -42,18 +58,35 @@ export default class Calendar extends React.Component {
 						<tr>
 							<th scope="col">Organisatör</th>
 							<th scope="col">Ämne</th>
+							<th scope="col">Mötestyp</th>
 							<th scope="col">Starttid</th>
 							<th scope="col">Sluttid</th>
+							<th scope="col">Plats</th>
+							<th scope="col">Medlemmar</th>
 						</tr>
 					</thead>
 					<tbody>
 						{this.state.events.map(function(event) {
+							{
+								{
+									console.log(event);
+								}
+								{
+									/* console.log(event.attendees[0]); */
+								}
+							}
 							return (
 								<tr key={event.id}>
 									<td>
 										{event.organizer.emailAddress.name}
 									</td>
 									<td>{event.subject}</td>
+									<td>
+										{event.meetingType &&
+											meetingTypes[
+												event.meetingType
+											]}
+									</td>
 									<td>
 										{formatDateTime(
 											event.start.dateTime
@@ -64,11 +97,26 @@ export default class Calendar extends React.Component {
 											event.end.dateTime
 										)}
 									</td>
+									<td>{event.location.displayName}</td>
+									<td>
+										{event.attendees.map(
+											(attendee, index) => (
+												<p key={index}>
+													{
+														attendee
+															.emailAddress
+															.name
+													}
+												</p>
+											)
+										)}
+									</td>
 								</tr>
 							);
 						})}
 					</tbody>
 				</Table>
+				<Agenda />
 			</div>
 		);
 	}

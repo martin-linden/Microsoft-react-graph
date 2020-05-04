@@ -25,7 +25,9 @@ export async function getEvents(accessToken) {
 
 	const events = await client
 		.api('/me/events')
-		.select('subject,organizer,start,end')
+		.select(
+			'subject,organizer,start,end,location,attendees,bodypreview,body'
+		)
 		.orderby('createdDateTime DESC')
 		.get();
 

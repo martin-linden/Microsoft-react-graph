@@ -9,9 +9,9 @@ import { Button } from 'reactstrap';
 function formatDateTime(dateTime) {
 	return moment.utc(dateTime).local().format('M/D/YY h:mm A');
 
-// const handleClick = () => {
-// 		console.log('this is:', this);
-// 	}
+	// const handleClick = () => {
+	// 		console.log('this is:', this);
+	// 	}
 }
 
 export default class User extends React.Component {
@@ -66,9 +66,7 @@ export default class User extends React.Component {
 					</tbody>
 				</Table>
 				{/* <Button onClick={this.handleClick}> */}
-				<Button>
-					Skapa ny användare
-				</Button>
+				<Button>Skapa ny användare</Button>
 			</div>
 		);
 	}
