@@ -3,7 +3,7 @@ import { Table } from 'reactstrap';
 import moment from 'moment';
 import config from './Config';
 import { getEvents } from './GraphService';
-import Agenda from './Components/agenda';
+import Agenda from './Components/Agenda';
 
 import {
 	setMeetings,
@@ -22,8 +22,67 @@ export default class Calendar extends React.Component {
 		super(props);
 
 		this.state = {
-			events: []
+			events: [],
+			agenda: {
+				location: '',
+				subject: '',
+				date: '',
+				from: '',
+				to: '',
+				agendaItems: ['', '', '']
+			},
+			selectedEvent: null
 		};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleEventClick = this.handleEventClick.bind(this);
+	}
+	getEventByID(id) {
+		// const result = words.filter(word => word.length > 6);
+		let selectedEvent = this.state.events.filter(
+			(event) => event.id == id
+		);
+		console.log(selectedEvent[0]);
+		let agendaState = { ...this.state.agenda }
+		const agenda = {
+
+			location: selectedEvent[0].location.displayName,
+			subject: selectedEvent[0].subject,
+			date: selectedEvent[0].start.dateTime,
+
+
+		};
+		this.setState({ agenda: Object.assign(agendaState, agenda) });
+	}
+	handleChange(e) {
+		console.log(e.target.name);
+		let agendaState = { ...this.state.agenda }
+		agendaState[e.target.name] = e.target.value
+		this.setState({ agenda: agendaState });
+	}
+	handleAgendaItemChange = (e, index) => { // not used at this time
+		let agendaItems = this.state.agenda.agendaItems;
+		let agendaState = { ...this.state.agenda }
+		agendaItems[index] = e.target.value;
+		let mergedAgenda = { agenda: Object.assign(agendaState, { agendaItems }) }
+		this.setState({ agenda: { agendaItems } });
+	}
+	addAgendaItem = () => { // not used at this time
+		let agendaState = { ...this.state.agenda }
+		agendaState.agendaItems.push('')
+		this.setState({ agenda: agendaState });
+	}
+	handleSubmit(e) {
+		e.preventDefault();
+		console.log(this.state.agenda);
+		this.setState({ agenda: { location: '' } });
+	}
+	handleEventClick(e) {
+		const selectedEvent = e.target
+			.closest('tr')
+			.getAttribute('data-id');
+		this.getEventByID(selectedEvent);
+		this.setState({ selectedEvent });
 	}
 
 	async componentDidMount() {
@@ -65,18 +124,28 @@ export default class Calendar extends React.Component {
 							<th scope="col">Medlemmar</th>
 						</tr>
 					</thead>
-					<tbody>
-						{this.state.events.map(function(event) {
+					<tbody onClick={this.handleEventClick}>
+						{this.state.events.map((event) => {
 							{
 								{
-									console.log(event);
+									//console.log(event);
 								}
 								{
 									/* console.log(event.attendees[0]); */
 								}
 							}
+							let condition =
+								this.state.selectedEvent == event.id;
 							return (
-								<tr key={event.id}>
+								<tr
+									style={{
+										backgroundColor: condition
+											? 'grey'
+											: 'white'
+									}}
+									key={event.id}
+									data-id={event.id}
+								>
 									<td>
 										{event.organizer.emailAddress.name}
 									</td>
@@ -84,7 +153,7 @@ export default class Calendar extends React.Component {
 									<td>
 										{event.meetingType &&
 											meetingTypes[
-												event.meetingType
+											event.meetingType
 											]}
 									</td>
 									<td>
@@ -116,7 +185,12 @@ export default class Calendar extends React.Component {
 						})}
 					</tbody>
 				</Table>
-				<Agenda />
+				<Agenda
+					agenda={this.state.agenda}
+					handleChange={this.handleChange}
+					handleSubmit={this.handleSubmit}
+					handleAgendaItemChange={this.handleAgendaItemChange}
+				/>
 			</div>
 		);
 	}

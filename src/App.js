@@ -40,6 +40,8 @@ class App extends Component {
 			// Enhance user object with data from Graph
 			this.getUserProfile();
 		}
+		this.getUserProfile = this.getUserProfile.bind(this);
+		this.login = this.login.bind(this);
 	}
 
 	async login() {
