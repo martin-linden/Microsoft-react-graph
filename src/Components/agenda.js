@@ -1,5 +1,6 @@
 import React from 'react';
 import RadioButtons from '../Components/RadioButtons';
+import DataTableApp from './DataTableApp';
 
 export class Agenda extends React.Component {
 	render() {
@@ -14,7 +15,6 @@ export class Agenda extends React.Component {
 								<input
 									type="text"
 									class="form-control"
-
 									name="location"
 									onChange={this.props.handleChange}
 									value={this.props.agenda.location}
@@ -27,7 +27,7 @@ export class Agenda extends React.Component {
 									class="form-control"
 									name="topic"
 								/* onChange={this.props.handleChange}
-								value={this.props.agenda.location}  */
+							value={this.props.agenda.location}  */
 								/>
 							</div>
 						</div>
@@ -62,11 +62,9 @@ export class Agenda extends React.Component {
 							onChange={this.props.handleChange}
 							value={this.props.agenda.subject}
 						/>
-
-
 					</form>
 				</div>
-				<br></br>
+				<br />
 				<div class="form-row">
 					<div class="col">
 						<th>Ledamöter</th>
@@ -74,7 +72,6 @@ export class Agenda extends React.Component {
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 
 						<th>Gäster</th>
@@ -82,24 +79,20 @@ export class Agenda extends React.Component {
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 					</div>
 					<div class="col">
-
 						<th>E-post</th>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<th>-</th>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 					</div>
 					<div class="col">
@@ -108,18 +101,17 @@ export class Agenda extends React.Component {
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<th>-</th>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 					</div>
 				</div>
-				<br></br>
+				<br />
+				{/* 
 				<div class="form-row">
 					<div class="col">
 						<th>Tid/punkt</th>
@@ -127,37 +119,31 @@ export class Agenda extends React.Component {
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 					</div>
 					<div class="col">
@@ -166,40 +152,33 @@ export class Agenda extends React.Component {
 							type="text"
 							class="form-control"
 							name="subject"
-
+							placeholder="Formalia"
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
-
-
 					</div>
 					<div class="col">
 						<th>Ansv</th>
@@ -207,41 +186,33 @@ export class Agenda extends React.Component {
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
 
 						<input
 							type="text"
 							class="form-control"
 							name="subject"
-
 						/>
-
-
 					</div>
 					<div class="col">
 						<th>BID</th>
@@ -253,16 +224,15 @@ export class Agenda extends React.Component {
 
 				</div>
 
+				<br />
 
-				<br></br>
+				<button type="submit" class="btn btn-primary">
+					Spara
+				</button> */}
 
-				<button
-					type="submit"
-					class="btn btn-primary"
-				>Spara
-					</button>
+				<DataTableApp />
+
 			</div>
-
 		);
 	}
 }

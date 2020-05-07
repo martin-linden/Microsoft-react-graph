@@ -146,8 +146,8 @@ class App extends Component {
 							this.state.isAuthenticated ? (
 								this.logout.bind(this)
 							) : (
-									this.login.bind(this)
-								)
+								this.login.bind(this)
+							)
 						}
 						user={this.state.user}
 					/>

@@ -109,7 +109,10 @@ let events;
 	}
 ];
  */
-const templateFields = { meetingType: 'E', agenda: [{ time: '', topic: '', person: '', }] }; // add new fields here, please
+const templateFields = {
+	meetingType: 'E',
+	agenda: [ { time: '', topic: '', person: '' } ]
+}; // add new fields here, please
 
 export const getMeetings = () => events;
 export const getMeetingByID = (id) =>
