@@ -2,6 +2,8 @@ import React from 'react';
 import RadioButtons from '../Components/RadioButtons';
 import DataTableApp from './DataTableApp';
 
+import AgendaTable from './AgendaTable';
+
 export class Agenda extends React.Component {
 	render() {
 		return (
@@ -26,7 +28,7 @@ export class Agenda extends React.Component {
 									type="text"
 									class="form-control"
 									name="topic"
-								/* onChange={this.props.handleChange}
+									/* onChange={this.props.handleChange}
 							value={this.props.agenda.location}  */
 								/>
 							</div>
@@ -229,9 +231,8 @@ export class Agenda extends React.Component {
 				<button type="submit" class="btn btn-primary">
 					Spara
 				</button> */}
-
+				<AgendaTable />
 				<DataTableApp />
-
 			</div>
 		);
 	}

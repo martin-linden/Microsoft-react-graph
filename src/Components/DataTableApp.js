@@ -5,7 +5,7 @@ import './DataTable.css';
 
 class DataTableApp extends Component {
 	render() {
-		const headings = ['Tid/punkt', '', 'Ansv', 'B', 'I', 'D'];
+		const headings = [ 'Tid/punkt', '', 'Ansv', 'B', 'I', 'D' ];
 
 		const rows = [
 			[
@@ -16,16 +16,23 @@ class DataTableApp extends Component {
 				'',
 				''
 			],
-			['2', "Val av sekreterare", '', '', '', ''],
-			['3', "Godkännande av agenda", '', '', '', ''],
-			['4', "Godkännande, utestående punkter från föreg protkoll", '', '', '', ''],
-			['5', "hej", '', '', '', ''],
-			['6', "dummy text", '', '', '', ''],
-			['7', "dummy text", '', '', '', ''],
-			['8', "dummy text", '', '', '', ''],
-			['9', "Övriga frågor", '', '', '', ''],
-			['10', "Nästa möte", '', '', '', ''],
-			['11', "Avslutning", '', '', '', '']
+			[ '2', 'Val av sekreterare', '', '', '', '' ],
+			[ '3', 'Godkännande av agenda', '', '', '', '' ],
+			[
+				'4',
+				'Godkännande, utestående punkter från föreg protkoll',
+				'',
+				'',
+				'',
+				''
+			],
+			[ '5', 'hej', '', '', '', '' ],
+			[ '6', 'dummy text', '', '', '', '' ],
+			[ '7', 'dummy text', '', '', '', '' ],
+			[ '8', 'dummy text', '', '', '', '' ],
+			[ '9', 'Övriga frågor', '', '', '', '' ],
+			[ '10', 'Nästa möte', '', '', '', '' ],
+			[ '11', 'Avslutning', '', '', '', '' ]
 		];
 
 		return (
