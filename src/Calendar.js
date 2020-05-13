@@ -4,8 +4,6 @@ import moment from 'moment';
 import config from './Config';
 import { getEvents } from './GraphService';
 import Agenda from './Components/Agenda';
-import AgendaTable from './Components/AgendaTable';
-import Popup from 'reactjs-popup';
 
 import {
 	setMeetings,
@@ -24,7 +22,6 @@ export default class Calendar extends React.Component {
 		super(props);
 
 		this.state = {
-			open: false,
 			events: [],
 			agenda: {
 				location: '',
@@ -36,8 +33,6 @@ export default class Calendar extends React.Component {
 			},
 			selectedEvent: null
 		};
-		this.openModal = this.openModal.bind(this);
-		this.closeModal = this.closeModal.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleEventClick = this.handleEventClick.bind(this);
@@ -89,12 +84,6 @@ export default class Calendar extends React.Component {
 			.getAttribute('data-id');
 		this.getEventByID(selectedEvent);
 		this.setState({ selectedEvent });
-	}
-	openModal() {
-		this.setState({ open: true });
-	}
-	closeModal() {
-		this.setState({ open: false });
 	}
 
 	async componentDidMount() {
@@ -192,33 +181,10 @@ export default class Calendar extends React.Component {
 											)
 										)}
 
-										<div>
-											<button
-												className="button"
-												onClick={this.openModal}
-											>
-												agenda
-											</button>
-											<Popup
-												open={this.state.open}
-												closeOnDocumentClick
-												onClose={this.closeModal}
-											>
-												<div className="modal">
-													<a
-														className="close"
-														onClick={
-															this.closeModal
-														}
-													>
-														&times;
-													</a>
-													<div className="form-info">
-														<p>herrfre</p>
-													</div>
-												</div>
-											</Popup>
-										</div>
+										<button className="button">
+											// onClick={}
+											Agenda
+										</button>
 									</td>
 								</tr>
 							);
